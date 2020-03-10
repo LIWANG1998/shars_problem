@@ -203,3 +203,124 @@ rotate(30deg) [角度] ;  translate(30px,30px);  scale(.8) [放大缩小];    sk
 10.**盒模型定义**  box-sizing:border-box的时候，边框和padding包含在元素的宽高之内！              box-sizing:content-box的时候，边框和padding不包含在元素的宽高之内！
 
 11.**媒体查询**
+
+### ES6
+
+1.不一样的变量声明：const和let
+
+2.ES6反引号`(${})直接搞定；
+
+3.箭头函数()=>{} (=>this指向.谁定义指向谁)(function谁调用指向谁)
+
+4.函数的参数默认值
+
+5.扩展运算符
+
+```JS
+function testFunc(...args) {
+   console.log(args);  // ['aa', 'bb', 'cc']
+   console.log(args.length); // 3
+}
+ // 调用函数
+ testFunc('aa', 'bb', 'cc');
+
+let arrs1 = ['aa', 'bb'];
+let arrs2 = ['cc', 'dd'];
+// 合并数组
+let arrs = [...arrs1, ...arrs2];
+// 析构数组
+let param1, param2;
+[param1, ...param2] = arrs1;
+
+console.log(param1); // aa
+console.log(param2); // ['bb']
+//把类数组对象转换成数组 
+var toArray = [...arguments];
+//数组的深度拷贝
+var arr1 = [1, 2];
+var arr2 = [...arr1];
+arr1.push(3);
+console.log(arr1); // [1, 2, 3]
+console.log(arr2); // [1, 2]
+```
+
+6.变量的解构
+
+```js
+let {a,b}=o;
+ler [a,b]=o;
+```
+
+7.二进制和八进制字面量
+
+```js
+let oValue = 0o10;
+console.log(oValue); // 8
+ 
+let bValue = 0b10; // 二进制使用 `0b` 或者 `0B`
+console.log(bValue); // 2
+```
+
+8.ES6 允许在对象中使用 super 方法：
+
+```js
+var parent = {
+  foo() {
+    console.log("Hello from the Parent");
+  }
+}
+ 
+var child = {
+  foo() {
+    super.foo();
+    console.log("Hello from the Child");
+  }
+}
+ 
+Object.setPrototypeOf(child, parent);
+child.foo(); // Hello from the Parent
+             // Hello from the Child
+```
+
+9.for...of 和 for...in
+
+10.ES6中的类
+
+ES6 中支持 class 语法，不过，ES6的class不是新的对象继承模型，它只是原型链的语法糖表现形式。
+
+```
+class Student {
+  constructor() {
+    console.log("I'm a student.");
+  }
+ 
+  study() {
+    console.log('study!');
+  }
+ 
+  static read() {
+    console.log("Reading Now.");
+  }
+}
+  //类中的继承和超集：
+console.log(typeof Student); // function
+let stu = new Student(); // "I'm a student."
+stu.study(); // "study!"
+stu.read(); // "Reading Now."
+
+class Phone {
+  constructor() {
+    console.log("I'm a phone.");
+  }
+}
+
+class MI extends Phone {
+  constructor() {
+    super();
+    console.log("I'm a phone designed by xiaomi");
+  }
+}
+ 
+let mi8 = new MI();
+```
+

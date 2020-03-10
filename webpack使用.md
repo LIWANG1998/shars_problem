@@ -62,7 +62,7 @@ modeule.exports={
     //输入
     output:{
         //输出文件名
-        filename:'built.js',
+        filename:'js/built.js',
         //输出路径
         //__dirname nodejs 的变量，代表当前文件的目录结对路径
         path:resolve(__dirname,"built")
